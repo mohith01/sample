@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#SECRET_KEY = '*zg72qohn=8nu)_zn&zxqv)=fvkk2l+bvdv!wlufeyh3=4#-h#'
+#SECRET_KEY = ''
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '*zg72qohn=8nu)_zn&zxqv)=fvkk2l+bvdv!wlufeyh3=4#-h#')
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', '*zg72qohn=8nu)_zn&zxqv)=fvkk2l
 
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['limitless-chamber-33341.herokuapp.com','127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
