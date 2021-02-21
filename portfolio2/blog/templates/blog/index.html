@@ -1,0 +1,84 @@
+{% load static %}
+<title> Blog</title>
+<link rel = "icon" href =  
+"https://raw.githubusercontent.com/mohith01/imageres/main/iconlogo.png?token=AKHKSA7EY47EF3SX6VKC7ZC72HJBG" 
+        type = "image/x-icon"> 
+<script src="https://kit.fontawesome.com/4a118d1823.js" ></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+{% include 'blog/includes/header.html' %}
+
+<div class="container1">
+
+<h1 style="font-family: 'Roboto', sans-serif;text-align: center;">Posts</h1>
+<hr >
+{%block content %}
+{% for post in posts %}
+<div>
+    <p class="babe1"> <a href="post/{{ post.pk }}">{{post.Title|safe}}</a></p>
+    <p class="date1">{{post.Date}}</p>
+    <div class="hello1">
+        {{post.Description|safe}}
+        <a href="post/{{ post.pk }}">Read more..</a>
+</div>
+    <hr>
+</div>
+{% endfor %}
+{% endblock %}
+<div style="margin:auto;">
+    {% if posts.has_other_pages %}
+    <ul class="pagination">
+    {% if posts.has_previous %}
+    <li class="nav3"><a href="?page={{ posts.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+    <li class="disabled nav3"></li>
+    {% endif %}
+    {% for i in posts.paginator.page_range %}
+    {% if posts.number == i %}
+      <li class="active nav3"><a href="?page={{ i }}">{{ i }}</a></li>
+    {% else %}
+      <li class="nav3"><a href="?page={{ i }}">{{ i }}</a></li>
+    {% endif %}
+    {% endfor %}
+    {% if posts.has_next %}
+    <li class="nav3"><a href="?page={{ posts.next_page_number }}">&raquo;</a></li>
+    {% else %}
+    <li class="disabled nav3"></li>
+    {% endif %}
+    </ul>
+    {% endif %}
+    </div>
+
+</div>
+{% include 'blog/includes/footer.html' %}
+<style>
+  .container1{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.babe1{
+  font-family: 'Roboto', sans-serif;
+  color: #0b4e96;
+  padding: 0em 1em ;
+  
+  font-size:  1.5em;
+}
+
+.hello1{
+  padding: 0em 2em;
+  color: #6730ec;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+}
+
+.date1{
+    color: #4d4a4ab9;
+    font-size: small;
+    padding:0em 2em;
+}
+</style>

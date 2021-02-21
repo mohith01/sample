@@ -1,0 +1,72 @@
+<script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js?ver=1.3.2'></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" >
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <div id="footer">
+ 
+    <a class="contactme" href="https://github.com/mohith01"> <i class="fab fa-github" aria-hidden="true"></i></a>
+    <a class="contactme" href="https://www.linkedin.com/in/mohit-sai-aravind-1a37a9145/"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a> 
+    <a class="contactme" href="mailto:mohith01@gmail.com"><i class="fas fa-envelope" aria-hidden="true"></i></a> 
+    <a class="contactme" href="https://www.instagram.com/m0hi7s4i/"><i class="fab fa-instagram" aria-hidden="true"></i></a> 
+    <a class="contactme" href="https://api.whatsapp.com/send?phone=+919962397472"><i class="fa fa-whatsapp" aria-hidden="true"></i></a> 
+    <a class="contactme" ><i class="fa fa-phone" aria-hidden="true">+91 9962397472</i></a> 
+    <br>
+    <p class="ftr">© Mohit Sai Aravind N  </p>
+
+  </div>
+
+<style>
+#footer { 
+position:fixed;
+bottom: 0.4%;
+text-align:center;
+width: 100%;
+
+
+/* justify-content:center;
+   align-items:center; */
+  }
+.contactme{
+  padding: 0 1% 1.3% 1%;
+color: #3492AC;
+}
+
+.ftr{
+  color:#8996ab
+}
+
+</style>
+<script>
+  $(window).bind("load", function() { 
+       
+       var footerHeight = 0,
+           footerTop = 0,
+           $footer = $("#footer");
+           
+       positionFooter();
+       
+       function positionFooter() {
+       
+                footerHeight = $footer.height();
+                footerTop = ($(window).scrollTop()+$(window).height()-footerHeight)+"px";
+       
+               if ( ($(document.body).height()+footerHeight) < $(window).height()) {
+                   $footer.css({
+                        position: "absolute"
+                   }).animate({
+                        top: footerTop
+                   })
+               } else {
+                   $footer.css({
+                        position: "static"
+                   })
+               }
+               
+       }
+
+       $(window)
+               .scroll(positionFooter)
+               .resize(positionFooter)
+               
+});
+</script>
