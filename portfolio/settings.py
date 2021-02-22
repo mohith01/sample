@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'blog',
     'ckeditor',
@@ -57,9 +58,9 @@ ROOT_URLCONF = 'portfolio.urls'
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
-STATICFILES_DIRS=[
-    "blog/static/"
-]
+STATICFILES_DIRS = (
+    BASE_DIR / 'staticfiles',
+)
 
 TEMPLATES = [
     {
