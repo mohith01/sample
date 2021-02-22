@@ -31,7 +31,7 @@ DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 ALLOWED_HOSTS = ['limitless-chamber-33341.herokuapp.com','127.0.0.1']
 
 STATICFILES_DIRS=[
-	'/blog/static/'
+	'blog/static/',
 ]
 INSTALLED_APPS = [
     'django.contrib.admin',
