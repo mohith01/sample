@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
-    'blog',
+    'blog.apps.BlogConfig',
     'ckeditor',
     'admin_honeypot',
 ]
@@ -58,9 +58,7 @@ ROOT_URLCONF = 'portfolio.urls'
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
-STATICFILES_DIRS = (
-    BASE_DIR / 'staticfiles',
-)
+
 
 TEMPLATES = [
     {
